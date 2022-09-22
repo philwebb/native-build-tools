@@ -48,9 +48,6 @@ public abstract class AbstractNativeImageMojo extends AbstractNativeMojo {
     @Parameter(defaultValue = "${session}", readonly = true)
     protected MavenSession session;
 
-    @Parameter(defaultValue = "${project}", readonly = true, required = true)
-    protected MavenProject project;
-
     @Parameter(defaultValue = "${mojoExecution}")
     protected MojoExecution mojoExecution;
 

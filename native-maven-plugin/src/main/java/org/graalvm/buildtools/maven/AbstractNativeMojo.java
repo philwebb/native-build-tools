@@ -63,6 +63,7 @@ import org.apache.maven.artifact.Artifact;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugins.annotations.Component;
 import org.apache.maven.plugins.annotations.Parameter;
+import org.apache.maven.project.MavenProject;
 import org.codehaus.plexus.logging.Logger;
 import org.graalvm.buildtools.maven.config.MetadataRepositoryConfiguration;
 import org.graalvm.buildtools.utils.FileUtils;
@@ -75,6 +76,9 @@ import org.graalvm.reachability.internal.FileSystemRepository;
  * @author Sebastien Deleuze
  */
 public abstract class AbstractNativeMojo extends AbstractMojo {
+
+    @Parameter(defaultValue = "${project}", readonly = true, required = true)
+    protected MavenProject project;
 
     @Parameter(defaultValue = "${project.build.directory}", property = "outputDir", required = true)
     protected File outputDirectory;

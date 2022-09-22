@@ -44,13 +44,20 @@ import java.nio.file.Path;
 
 public class DirectoryConfiguration {
 
+    private final Path moduleRoot;
+
     private final Path directory;
 
     private final boolean override;
 
-    public DirectoryConfiguration(Path directory, boolean override) {
-        this.directory = directory;
+    public DirectoryConfiguration(Path moduleRoot, String artifactDirectory, boolean override) {
+        this.moduleRoot = moduleRoot;
+        this.directory =  moduleRoot.resolve(artifactDirectory);
         this.override = override;
+    }
+
+    public Path getModuleRoot() {
+        return moduleRoot;
     }
 
     public Path getDirectory() {

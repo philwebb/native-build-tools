@@ -116,7 +116,7 @@ public class SingleModuleJsonVersionToConfigDirectoryIndex implements VersionToC
                 .filter(artifact -> artifact.getModule().equals(module))
                 .filter(predicate)
                 .findFirst()
-                .map(artifact -> new DirectoryConfiguration(moduleRoot.resolve(artifact.getDirectory()), artifact.isOverride()));
+                .map(artifact -> new DirectoryConfiguration(moduleRoot,artifact.getDirectory(), artifact.isOverride()));
     }
 
 }
