@@ -411,6 +411,28 @@ include::../snippets/gradle/groovy/build.gradle[tags=specify-metadata-version-fo
 include::../snippets/gradle/kotlin/build.gradle.kts[tags=specify-metadata-version-for-library]
 ----
 
+=== Including metadata repository files
+
+By default, repository metadata will be used only when your native image is generated.
+In some situations, you may want a copy the metadata to use directly.
+
+For example, copying the metadata into your jar can be useful when some other process is responsible for converting your jar into a native image.
+You might be generating a shaded jar and using a https://paketo.io/[Paketo buildpack] to convert it to a native image.
+
+To include metadata repository inside your jar you can use the `ReachabilityMetadataCopyTask`.
+Typically the task will be declared and linked to the `from` section of the `jar`:
+
+.Including metadata repository files
+[source, groovy, role="multi-language-sample"]
+----
+include::../snippets/gradle/groovy/build.gradle[tags=include-metadata]
+----
+
+[source, kotlin, role="multi-language-sample"]
+----
+include::../snippets/gradle/kotlin/build.gradle.kts[tags=include-metadata]
+----
+
 [[plugin-configurations]]
 == Configurations defined by the plugin
 

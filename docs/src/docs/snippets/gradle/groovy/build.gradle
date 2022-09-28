@@ -207,3 +207,11 @@ graalvmNative {
     }
 }
 // end::specify-metadata-version-for-library[]
+
+// tag::include-metadata[]
+task reachabilityMetadata(type: org.graalvm.buildtools.gradle.tasks.ReachabilityMetadataCopyTask)
+
+jar {
+    from reachabilityMetadata
+}
+// end::include-metadata[]

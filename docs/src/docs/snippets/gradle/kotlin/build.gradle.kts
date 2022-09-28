@@ -221,3 +221,11 @@ graalvmNative {
     }
 }
 // end::specify-metadata-version-for-library[]
+
+// tag::include-metadata[]
+var reachabilityMetadata = tasks.register<org.graalvm.buildtools.gradle.tasks.ReachabilityMetadataCopyTask>("reachabilityMetadata")
+
+tasks.withType<Jar> {
+	from(reachabilityMetadata)
+}
+// end::include-metadata[]
