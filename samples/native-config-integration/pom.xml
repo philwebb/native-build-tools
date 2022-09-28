@@ -359,6 +359,34 @@
             </build>
         </profile>
         <profile>
+            <id>addMetadataHints</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.graalvm.buildtools</groupId>
+                        <artifactId>native-maven-plugin</artifactId>
+                        <version>${native.maven.plugin.version}</version>
+                        <configuration>
+                            <metadataRepository>
+                                <enabled>true</enabled>
+                                <localPath>${project.basedir}/config-directory</localPath> <!--1-->
+                            </metadataRepository>
+                        </configuration>
+                        <!-- tag::add-metadata-hints-execution[] -->
+                        <executions>
+                            <execution>
+                                <id>add-metadata-hints</id>
+                                <goals>
+                                    <goal>add-metadata-hints</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <!-- end::add-metadata-hints-execution[] -->
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
             <id>excludeConfigTest</id>
             <build>
                 <plugins>
